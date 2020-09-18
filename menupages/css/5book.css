@@ -1,0 +1,54 @@
+
+/* КАРТИНКИ. Загрузка изображений */
+
+.img_1 {
+    background: url("../../pictures/5book/01orientiri/orn3.jpg");
+}
+
+.img_2 {
+    background: url("../../pictures/5book/02dao/dao2.jpg");
+}
+
+.img_3 {
+    background: url("../../pictures/5book/03sholii/sho.jpg");
+}
+
+.img_4 {
+    background: url("../../pictures/5book/04aforismos/afr.jpg");
+}
+
+.img_5 {
+    background: url("../../pictures/5book/05agata/agt.jpg");
+}
+
+.img_6 {
+    background: url("../../pictures/5book/06svarovski/svr.jpg");
+}
+
+.img_7 {
+    background: url("../../pictures/5book/07picnconv/and.jpg");
+}
+
+.img_8 {
+    background: url("../../pictures/5book/08zolushka/zol.jpg");
+}
+
+.img_9 {
+    background: url("../../pictures/5book/09lisao/sao.jpg");
+}
+
+.img_10 {
+    background: url("../../pictures/5book/10zui/zui.jpg");
+}
+
+/* ПОДВАЛ без визитки */
+
+.down_panel_small {
+    max-width: none;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 150px;
+    padding: 30px;
+    background-color: rgb(100, 100, 100);
+}

@@ -1,0 +1,50 @@
+
+/* КАРТИНКИ. Загрузка изображений */
+
+.img_1 {
+    background: url("../../pictures/3design/01advertising/adv1.jpg");
+}
+
+.img_2 {
+    background: url("../../pictures/3design/02clipart/clp9.jpg");
+}
+
+.img_3 {
+    background: url("../../pictures/3design/03cards/crd10.jpg");
+}
+
+.img_4 {
+    background: url("../../pictures/3design/04origami/org4.jpg");
+}
+
+.img_5 {
+    background: url("../../pictures/3design/05war/war3.jpg");
+}
+
+.img_6 {
+    background: url("../../pictures/3design/06pocket/pct10.png");
+}
+
+.img_7 {
+    background: url("../../pictures/3design/07princess/prc10.jpg");
+}
+
+.img_8 {
+    background: url("../../pictures/3design/08itzin/itz7.jpg");
+}
+
+.img_9 {
+    background: url("../../pictures/3design/09horse/hrs7.jpg");
+}
+
+/* ПОДВАЛ без визитки */
+
+.down_panel_small {
+    max-width: none;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 150px;
+    padding: 30px;
+    background-color: rgb(100, 100, 100);
+}

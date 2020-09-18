@@ -1,0 +1,50 @@
+
+/* КАРТИНКИ. Загрузка изображений */
+
+.img_1 {
+    background: url("../pictures/1painting/01acryl/acr7.jpg");
+}
+
+.img_2 {
+    background: url("../pictures/1painting/06tonal/tnl2.jpg");
+}
+
+.img_3 {
+    background: url("../pictures/2graphics/01romantic/rmn7.jpg");
+}
+
+.img_4 {
+    background: url("../pictures/2graphics/05lifesigns/sgn4.jpg");
+}
+
+.img_5 {
+    background: url("../pictures/3design/07princess/prc3.jpg");
+}
+
+.img_6 {
+    background: url("../pictures/3design/02clipart/clp9.jpg");
+}
+
+.img_7 {
+    background: url("../pictures/4illustration/01agata/agt1.jpg");
+}
+
+.img_8 {
+    background: url("../pictures/4illustration/02svarovski/svr1.jpg");
+}
+
+.img_9 {
+    background: url("../pictures/5book/01orientiri/orn3.jpg");
+}
+
+.img_10 {
+    background: url("../pictures/5book/02dao/dao3.jpg");
+}
+
+.img_11 {
+    background: url("../pictures/6web/01taro/tar1.jpg");
+}
+
+.img_12 {
+    background: url("../pictures/6web/02maya/may1.jpg");
+}

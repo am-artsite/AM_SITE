@@ -1,0 +1,75 @@
+
+/* ____ Эффект при наведении мыши на горизонтальное меню навигации ____ */
+
+.menu-effect ul {
+    position: relative;
+    text-align: center;         /* Выравниваем список по левому краю */
+    padding: 10px 0px 0px 0px;  /* Сдвигаем опции меню от верхнего края */
+    margin-top: 0px;            /* Важно!!! Иначе блок дергается */
+}
+
+.menu-effect li {
+    position: relative;
+    text-align: left;           /* Выравниваем элементы списка по левому краю*/
+    list-style: none;           /* Убираем маркеры элементов спаска */
+    display: inline-block;      /* Разещаем элементы спаска горизонтально */
+    
+}
+
+.menu-effect a {
+    position: relative;
+    padding: 0px;    
+    margin-right: 40px;         /* Интервалы между опциями */
+    font-family: 'Oswald', 'Oswald-Light', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-transform: none;
+    color: rgb(100, 100, 100);       
+    -webkit-transition: color 0.3s;
+	-moz-transition: color 0.3s;
+	transition: color 0.3s;
+    z-index: 1;                 /* Поднимаем опцию меню */
+}
+
+#margin_off {
+    margin-right: 0px;          /* Убираем отступ у последней позиции меню */
+}
+
+/* Меняем цвет букв при наведении мыши */
+.menu-effect a:hover {
+    color:rgb(200, 50, 50);   
+}
+
+/* Невидимая линия под опцией меню */
+.menu-effect a::before {
+	position: absolute;
+	top: 32px;                  /* Расположение линии по высоте */
+	left: 0;                    /* Линия откладывается слева */
+	width: 100%;                /* Линия во всю ширину слова со стыком */
+    height: 1px;                /* Толщина линии */
+    background-color:rgb(200, 50, 50);  /* Цвет линии */
+	content: "";
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s; /* Проявление и расширение за 0.3 секунды */
+	-moz-transition: opacity 0.3s, -moz-transform 0.3s;
+	transition: opacity 0.3s, transform 0.3s;
+	-webkit-transform: scale(0.1);  /* Вначале уменьшено на 90% */
+	-moz-transform: scale(0.1);
+    transform: scale(0.1);
+    opacity: 0.0;                   /* Вначале полностью прозрачно */
+}
+
+/* При наведении мыши линия под опцией меню разворачивается */
+.menu-effect a:hover::before {
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+    transform: scale(1);
+    opacity: 1.0;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-effect a {
+        font-size: 18px;
+        margin-right: 10px;         /* Интервалы между опциями */
+    }
+}

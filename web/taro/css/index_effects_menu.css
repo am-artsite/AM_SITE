@@ -1,0 +1,179 @@
+a {
+    display: inline-block;
+    position: relative;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+/* ________________________ МЕНЮ ДЛЯ ШИРОКОГО ЭКРАНА ______________________ */
+
+/* Расположение меню относительно родительского элемнета */
+.menu_wide {
+    position: absolute;
+    display: inline-block;
+/*  Для установки с нулевыми отступом от верхнего края нужно установить top: -18px! Как так?
+    Видимо это связано с тем, что стиль применяется к списку, а нем уже заложен отступ,
+    ну как в абзаце. Так что этот отступ нужно скомпенсоровать top: -18px; */
+    top: 2px;
+    right: 20px;
+}
+
+/* Стиль элементов списка внутри меню */
+.li_up_wide {
+    position: relative;     /* Чтобы не унаследовало absolute от родительского */
+    display: inline-block; 
+    list-style: none;       /* Убираем маркер элемента спаска */
+}
+
+/* Стиль блока ниспадающего меню */
+.menu_down_wide {
+    position: absolute;     /* Точное позиционирование относительно плашки с полосочками */
+    display: none;          /* Делаем невидимым */
+    /* При margin-left: 0px; margin-top: 0px; попадает точно в верхний левый край*/
+    margin-left: -170px;
+    margin-top: 30px;
+    /* Оформляем блок по краям: */
+    border: 5px solid rgb(180, 180, 180);
+    background-color: rgb(180, 180, 180);
+    border-radius: 15px;
+    box-shadow: 0.2em 0.2em 4px rgba(0,0,0,0.2);
+}
+
+/* Появление ниспадающего меню при наведении мыши */
+.li_up_wide:hover .menu_down_wide {
+    display: block;  
+    position: absolute;   
+    top: 0px; /* Опять же! Без этого съезжает по вертикали! Со смещенем вбок все впорядке... */
+}
+
+/* Стиль элементов ниспадающего меню */
+.li_down_wide {
+    text-align: left;   /* Выравниваем элементы списка левому краю */
+    list-style: none;   /* Убираем маркеры элементов спаска */
+    padding: 10px;
+    margin-left: -20px; /* Компенсируем смещение по умолчанию, т.е. это список */    
+    height: 20px;       /* Насильственно сжимаем по высоте, без этого расползается... */
+    width: 120px;       /* и по ширине. Контроль методом тыка... */
+}
+
+/* Стиль ссылок ниспадающего меню */
+.item {
+    color: black;
+    border-bottom: 1px solid rgb(200, 200, 200);
+    white-space: nowrap;
+}
+
+/* Стиль нижней ссылки ниспадающего меню без подчеркивания */
+.item_end {
+    color: black;
+    white-space: nowrap;
+}
+
+/* Внедний вид ссылки - три маленькие полосочки в большом квадрате */
+.menu-effect1 a {
+    height: 80px;   /* Размер квадрата с полосочками посередине */
+    width: 80px;    /* который будет играть роль ссылки */
+    background-image: url("../img/lines.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* __________ Эффект – плашка меню темнеет, когда на неё наводим мышь __________ */
+
+/* Начертание опции меню и поля вокруг текста */
+.menu-effect2 a {
+    padding: 10px;    
+    margin-left: -10px; 
+    margin-top: -16px;
+    color: black;           
+    background-image: none;  /* Иначе наследует полосочки от родительского элемента! */
+    height: 18px;
+    width: 118px;
+    border-radius: 2px;
+    -webkit-transition: color 0.3s; /* Подсветка букв за 0.3 секунды */
+	-moz-transition: color 0.3s;
+    transition: color 0.3s;
+    letter-spacing: 2px;
+    text-transform: none;           
+    z-index: 1; 
+}
+
+.menu-effect2 a:hover {
+    color: rgb(255, 255, 255); 
+}
+
+.menu-effect2 a::before {
+	position: absolute;
+	top: 0%;        /* Подсветка разворачивается снизу */
+	left: 0;        /* Подсветка откладывается слева */
+	width: 140px;   /* Подсветка во всю ширину слова */
+    height: 38px;   /* Толщина линии подсветки */
+    background-image: (left, rgb(180, 180, 180) 0%, 
+    rgb(165, 165, 165) 50%, rgb(165, 165, 165) 51%, rgb(180, 180, 180) 100%); 
+    background-image: -webkit-gradient(left, rgb(180, 180, 180) 0%, 
+    rgb(165, 165, 165) 50%, rgb(165, 165, 165) 51%, rgb(180, 180, 180) 100%);
+    background-image: -webkit-linear-gradient(left, rgb(180, 180, 180) 0%, 
+    rgb(165, 165, 165) 50%, rgb(165, 165, 165) 51%, rgb(180, 180, 180) 100%);
+    background-image: -moz-linear-gradient(left, rgb(180, 180, 180) 0%, 
+    rgb(165, 165, 165) 50%, rgb(165, 165, 165) 51%, rgb(180, 180, 180) 100%);
+    background-image: -ms-linear-gradient(left, rgb(180, 180, 180) 0%, 
+    rgb(165, 165, 165) 50%, rgb(165, 165, 165) 51%, rgb(180, 180, 180) 100%);
+    background-image: -o-linear-gradient(left, rgb(180, 180, 180) 0%, 
+    rgb(165, 165, 165) 50%, rgb(165, 165, 165) 51%, rgb(180, 180, 180) 100%);
+    background-image: linear-gradient(left, rgb(180, 180, 180) 0%, 
+    rgb(165, 165, 165) 50%, rgb(165, 165, 165) 51%, rgb(180, 180, 180) 100%);
+	content: "";
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+	-moz-transition: opacity 0.3s, -moz-transform 0.3s;
+	transition: opacity 0.3s, transform 0.3s;
+	-webkit-transform: scale(0.1);  /* Вначале уменьшено на 90% */
+	-moz-transform: scale(0.1);
+    transform: scale(0.1);
+    opacity: 0.0;                   /* Вначале полностью прозрачно */
+    z-index: -1;  
+}
+    
+/* При наведении мыши подсветка разворачивается и проявляется */
+.menu-effect2 a:hover::before {
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+    transform: scale(1);
+    opacity: 1.0;
+}
+
+/* _______________________ КОНТРОЛЬ ШИРИНЫ ЭКРАНА _______________________ */
+
+@media screen and (max-width: 600px) {    
+    .menu_wide {
+        top: -100px;
+        right: 130px;
+    }
+
+    .menu_down_wide {
+        margin-left: -40px;
+        margin-top: 60px;
+    }
+
+    .menu-effect1 a {
+        background-image: url("../img/lines2.png");
+    }
+
+    .menu-effect2 a {        
+        padding: 10px;    
+        margin-left: -20px; 
+        margin-top: -16px;
+        color: black;           
+        background-image: none; /* Иначе наследует полосочки от родительского элемента! */
+        height: 18px;
+        width: 118px;
+        border-radius: 2px;
+        -webkit-transition: color 0.3s; /* Подсветка букв за 0.3 секунды */
+        -moz-transition: color 0.3s;
+        transition: color 0.3s;
+        letter-spacing: 2px;
+        text-transform: none;
+        text-align: center;          
+        z-index: 1; 
+        white-space: nowrap;
+    }
+}

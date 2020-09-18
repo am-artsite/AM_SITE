@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+ 
+<html lang="ru">
+
+<head> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name ="title" content="Александр Мануйлович">
+    <meta name="description" content="Александр Мануйлович. Живопись, графика, иллюстрации, дизайн, книги, тексты, веб-дизайн">
+    <meta name="keywords" content="мануйлович, александр, живопись, графика, иллюстрации, дизайн, книги, тексты, веб-дизайн">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="css/6web.css">  <!-- обязательно ДО index.css -->
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/menu_effect.css">
+    <link rel="stylesheet" type="text/css" href="../css/swiper.css">
+    <link rel="shortcut icon" href="../img/am.png" type="image/x-icon">
+
+    <title>Александр Мануйлович</title>
+</head>
+<body>
+
+<!-- ---- Панель для вывода увеличенной каринки ---- -->
+<div id="pic" class="overlay">
+    <img class="cross" src="../img/x.svg">
+    <div class="bigpic bigpicname"></div> 
+</div>
+
+<!-- ---------- Кнопка INFO справа вверху ---------- -->
+
+<a class="info" href="info.html">INFO</a>
+
+<!-- ---------- Начало блока, в котором располагается все остальное ---------- -->
+
+<div class="width_position"> 
+
+<!-- ------ Верхняя часть с меню и логотипом ------ -->
+<div id="up" class="logo_panel">
+    <h1 class="logo_txt">am.web</h1>
+</div>
+<div class="am_panel">
+    <h1 class="logo_txt">am.</h1>
+</div>
+
+<!-- ---------- Меню горизонтальное ---------- -->
+<div id="nav" class="menu_fixed">
+    <div class="menu-effect">
+        <ul>
+            <li><a href="../index.html">Home Page</a></li>
+            <li><a href="1painting.html">Живопись</a></li>
+            <li><a href="2graphics.html">Графика</a></li>
+            <li><a href="3design.html">Дизайн</a></li>
+            <li><a href="4illustration.html">Иллюстрации</a></li>
+            <li><a id="margin_off" href="5book.html">Книги</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- ---------- Загрузка изображений ---------- -->
+<div class="pic_panel">
+    <div class="pic">
+        <div class="img_1 img_common"></div>
+        <p class="txt_caption"><span class="txt_name">"Таро", набор для медитации.</span>2019.<br>
+        <a class="txt_ref" href="../web/taro/index.html">>> Разложить карты.</a></p>
+    </div>
+    <div class="pic">
+        <div class="img_2 img_common"></div>
+        <p class="txt_caption"><span class="txt_name">"M@ya-M@ya", виртуальная книга.</span>2000.<br>
+        <a class="txt_ref" href="../web/maya/index.html">>> Полистать книгу.</a></p>
+    </div>
+</div>
+<!-- ---------------------------- -->
+
+</div>
+
+<!-- ---------- Подвал ---------- -->
+<div id="down" class="down_panel_small">
+    <div class="bottom_place">
+        <a class="bottom_up" href="#up">НАВЕРХ</a>
+    </div>
+</div>
+
+<!--  -------------------- ФУНКЦИИ JS -------------------- -->
+<!-- Скрипт, управляющий залипанием меню и плавным движением между маркерами -->
+<script type="text/javascript" src="../js/index.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+ 
+<html lang="ru">
+
+<head> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name ="title" content="Александр Мануйлович">
+    <meta name="description" content="Александр Мануйлович. Живопись, графика, иллюстрации, дизайн, книги, тексты, веб-дизайн">
+    <meta name="keywords" content="мануйлович, александр, живопись, графика, иллюстрации, дизайн, книги, тексты, веб-дизайн">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    
+    <link rel="stylesheet" type="text/css" href="css/player.css">
+    <link rel="shortcut icon" href="../../img/am.png" type="image/x-icon">
+
+    <title>Александр Мануйлович</title>
+    
+    <style>
+        .pic {
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+    </style>
+
+</head>
+<body>
+
+<!-- --------------------- КАРТИНКА --------------------- -->
+
+<div class="place pic"></div>
+<p class="txt">Смотрим на картинки. Все подряд.</p>
+
+<!--  -------------- ПОКАЗ КАРТИНОК В ЦИКЛЕ -------------- -->
+<script>
+var pause = 1000;
+var pic = document.querySelector('.pic');
+var urlImage = 'url("../../pictures/1painting/01acryl/acr1.jpg")';
+
+function showpic(where) {
+urlImage = where;
+pic.style.background = urlImage;
+pic.style.backgroundRepeat = 'no-repeat';
+pic.style.backgroundPosition = 'center';
+pic.style.backgroundSize = 'contain';
+}
+
+var i=0;
+acrilshow=function(){
+    var urlImage = 'url("../../pictures/1painting/01acryl/acr' + i + '.jpg")';  
+    showpic(urlImage); 
+        i=i+1; if (i<=13) setTimeout(acrilshow, pause);
+};
+acrilshow();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+body {
+    background-color:white;
+}
+.textblock {
+    margin: auto;
+    width: 85%;
+    margin-top: 5vh;
+    height: 85vh;
+    max-width: 600px;
+}
+.infotext {
+    font-family: 'Oswald-Light', sans-serif;
+    font-weight: 200;
+    color: black;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-align: left;
+}
+.infotextred {
+    font-family: 'Oswald-Light', sans-serif;
+    font-weight: 200;
+    color: rgb(200, 50, 50);
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-align: left;
+}
+.linktext {
+    font-family: 'Oswald-Light', sans-serif;
+    font-weight: 200;
+    color: black;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+.linktext:hover {
+    color: rgb(200, 50, 50);
+    text-decoration: underline;
+}
+
+.goback {
+    font-family: 'Oswald-Light', sans-serif;
+    font-weight: 200;
+    color: rgb(150, 150, 150);
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(245, 245, 245);
+    cursor: pointer; 
+}
+
+.goback:hover {
+    color: rgb(100, 100, 100);
+    background-color: rgb(240, 240, 240);
+}

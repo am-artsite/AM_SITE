@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+ 
+<html lang="ru">
+
+<head> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name ="title" content="Александр Мануйлович">
+    <meta name="description" content="Александр Мануйлович. Живопись, графика, иллюстрации, дизайн, книги, тексты, веб-дизайн">
+    <meta name="keywords" content="мануйлович, александр, живопись, графика, иллюстрации, дизайн, книги, тексты, веб-дизайн">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    
+    <link rel="stylesheet" type="text/css" href="css/player.css">
+    <link rel="shortcut icon" href="../../img/am.png" type="image/x-icon">
+
+    <title>Александр Мануйлович</title>
+    
+    <style>
+        .pic {
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+    </style>
+
+</head>
+<body>
+
+<!-- --------------------- КАРТИНКА --------------------- -->
+
+<div class="place pic"></div>
+<div class="panel">
+    <button class="key"></button> 
+</div>
+<div class="next">
+    <img class="arr" src="img/arrow1.svg">
+</div>
+<div class="previous">
+    <img class="arr" src="img/arrow2.svg">
+</div>
+
+<!--  --------------------- СКРПИПТ -------------------- -->
+
+<script>
+
+// background-image: url("../img/stop.svg");
+var gopic = 'url("img/go.svg")';
+var stoppic = 'url("img/stop.svg")';
+var key = document.querySelector('.key');
+// Переменная, чтобы переключать режимы воспроизведения
+key.style.background = gopic;
+key.style.backgroundColor = 'goldenrod';
+key.style.backgroundRepeat = 'no-repeat';
+key.style.backgroundPosition = 'center';
+key.style.backgroundSize = 'contain';
+
+// Формируем массив с путями к картинкам по порядку
+var inOrder = new Array();
+
+for (var i = 1; i <= 4; i++) {
+    var path = 'url("../../pictures/1painting/01acryl/acr' + i + '.jpg")'; 
+    inOrder.push(path);
+}
+for (var i = 1; i <= 4; i++) {
+    var path = 'url("../../pictures/1painting/02natur/ntr' + i + '.jpg")'; 
+    inOrder.push(path);
+}
+
+// Длинна получившегося массива
+var n = inOrder.length;
+
+// Формируем массив с натуральными числами в случайном порядке
+var randomArray = [0];
+
+function shuffle() {
+  for(var i = 0 ; i < n ; i++) {
+      var randomNumber = Math.floor(Math.random() * n + 1);
+      for(var j = 0 ; j <= i ; j++) {
+          if (randomArray[j] == randomNumber) {
+          randomNumber = Math.floor(Math.random() * n + 1);
+          j = 0;
+          }
+      }
+      randomArray.push(randomNumber);
+  }  
+  randomArray.shift();
+}
+
+shuffle()
+
+// Формируем массив с путями к картинкам в случайном порядке
+var mixedUp = new Array();
+for(var i = 0 ; i < n ; i++) {
+    var j = randomArray[i]-1;
+    mixedUp[i] = inOrder[j];
+}  
+
+// Выбор - по порядку или в случайном порядке
+var showArray = new Array();
+showArray = mixedUp; // Массив в случайном порядке
+showArray = inOrder; // Массив по порядку
+
+// Функция, создающая стиль картинки (выводящая картинку на экран)
+function picstyle(where) {
+picUrl = where;
+pic.style.background = picUrl;
+pic.style.backgroundRepeat = 'no-repeat';
+pic.style.backgroundPosition = 'center';
+pic.style.backgroundSize = 'contain';
+}
+
+// Создаем переменную, запрашивающую элемент с классом .pic 
+var pic = document.querySelector('.pic');
+
+// ------------------ ЛИСТАНИЕ СТРЕЛКАМИ ------------------
+
+var next = document.querySelector('.next');
+var previous = document.querySelector('.previous');
+
+function stepplay() {
+    function step() {
+        var url = showArray[i];
+        picstyle(url); 
+        next.onclick = function(e) {
+            i = i + 1;
+            url = showArray[i];
+            picstyle(url); 
+        }
+        previous.onclick = function(e) {
+            i = i - 1; 
+            url = showArray[i];
+            picstyle(url);     
+        }
+    }
+    if (i <= n) step();
+}
+
+// ------------------ ЛИСТАНИЕ АВТОМАТИЧЕСКОЕ ------------------
+
+// Функция, выводящая картинки с заданной задержкой (temp) по очереди из сформированного массива начиная с определенного места (place)
+function autoplay(place, temp) {
+    var i = place;
+    function picshow() {        
+        var url = showArray[i];
+        picstyle(url);
+            i = i + 1; if (i <= n) setTimeout(picshow, temp);
+    }
+    picshow();
+}
+
+var i = 0;
+stepplay();
+// ---------- КНОПКА ---------
+
+var btn = document.querySelector('button'); // Переменная, чтобы задействовать кнопку
+
+btn.onclick = function() {
+    var btnClass = btn.getAttribute('status');
+  if(btnClass === 'go') {
+    btn.setAttribute('status','stop');  // element.setAttribute(name, value);
+    key.style.background = gopic;
+    key.style.backgroundColor = 'goldenrod';
+    key.style.backgroundRepeat = 'no-repeat';
+    key.style.backgroundPosition = 'center';
+    key.style.backgroundSize = 'contain';
+    stepplay();   
+    
+  } else {
+    btn.setAttribute('status','go');
+    key.style.background = stoppic;
+    key.style.backgroundColor = 'goldenrod';
+    key.style.backgroundRepeat = 'no-repeat';
+    key.style.backgroundPosition = 'center';
+    key.style.backgroundSize = 'contain';
+    autoplay (i, 1000);    
+  }
+}
+
+
+
+
+</script>
+
+</body>
+</html>

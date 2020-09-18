@@ -1,0 +1,474 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;    
+    /* border: dotted 1px gray; /* Сетка для отладки */
+}
+
+@font-face {
+    font-family: 'Oswald-Light';
+    src: url("../fonts/Oswald-Light.woff"); 
+}
+
+@font-face {
+    font-family: 'Oswald-Regular';
+    src: url("../fonts/Oswald-Regular.woff"); 
+}
+
+body {
+    width: 100%;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    min-width: 0px;
+    font-family: 'Oswald-Light', 'Oswald-Regular', sans-serif;
+}
+
+a {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+}
+
+.info {
+    height: 50px; 
+    width: 57px;
+    float: right;           /* Плашка INFO справа в край */
+    margin-top: 100px;
+    background-color: brown;
+    font-family: 'Oswald-Light', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-transform: none;
+    color: white;
+    padding: 10px;    
+}
+
+.info:hover {
+    background-color: rgb(195, 50, 50);
+}
+
+/* __________ ПАНЕЛЬ ДЛЯ ВЫВОДА УВЕЛИЧЕННОЙ КАРТИНКИ __________ */
+
+.overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* высота секции равна высоте области просмотра */
+    background-color: bisque;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 10;
+  }
+  
+  @keyframes showBlock1 {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes showBlock2 {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  .cross {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    cursor: pointer; 
+  }
+  
+  .cross:hover {
+    background-color: black;
+  }
+  
+  .bigpicname {
+    background-color: brown;
+  }
+  
+  .bigpic {
+    margin: auto;
+    width: 95%;
+    margin-top: 10vh;
+    height: 80vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-clip: padding-box; 
+  }
+
+.width_position {
+    display: block;         /* Расположение всей информации на странице */
+    width: 100%;
+    max-width: 1824px;
+    padding: 0px;
+    margin: auto;    
+}
+
+.logo_panel { 
+    display: block;         /* Плашка с именем. Широкий экран */
+    margin: auto;
+    text-align: center;
+    width: 80%;
+    height: 300px;
+    padding: 80px 0px 0px 0px;
+}
+
+.am_panel {
+    display: none;          /* Плашка с именем. Узкий экран */
+    margin: auto;
+    text-align: center;
+    width: 60%;
+    height: 300px;
+    padding: 80px 0px 0px 0px;
+}
+
+.logo_txt {
+    font-family: 'Oswald-Regular', sans-serif;    
+    font-size: 30px;        /* Имя */
+    font-weight: 400;
+    letter-spacing: 10px;
+    color: rgb(200, 200, 200);
+    text-align: center; 
+}
+
+/* Панель меню и панель с затемненением, залипающие при прокрутке */
+
+.menu_fixed {
+    display: block;         /* Блок опций меню, залипающий при прокрутке */
+    background: url("../img/white_grad.png");
+    background-repeat: repeat;
+    width: 100%;
+    height: 100px;
+    margin-top: -100px;     /* Чтобы полоска меню "выпадала" из потока блоков, не было скачка при залипании */
+    min-width: 320px;
+    z-index: 1; 
+}
+
+.sheensay_fixed {
+    position: fixed;        /* Отвечает за залипание в функции JavaScript */
+    top: 0;
+    left: 0;
+    margin-top: 0px;
+}
+
+/* КАРТИНКИ. Общий стиль */
+
+.pic_panel {
+    display: inline-block;
+    width: 100%;
+    margin: auto;
+}
+
+.pic {
+    display: inline-block;
+    margin-top: 0px;
+    padding: 20px;
+    width: 33%;
+    margin: 0; 
+    background-color:white;
+}
+
+.txt_name {
+    display: block;         /* название */
+    font-family: 'Oswald-Regular', sans-serif;
+    font-weight: 400;
+    color: black;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+.txt_caption {
+    display: block;         /* описание */
+    font-family: 'Oswald-Light', sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+.txt_ref {
+    display: block;         /* ссылка */
+    font-family: 'Oswald-Light', sans-serif;
+    font-size: 16px;
+    color: black;
+    letter-spacing: 1px;
+    text-align: left; 
+}
+
+.txt_ref:hover {
+    color: rgb(200, 50, 50);
+}
+
+/* КАРТИНКИ. Загрузка изображений */
+
+.img_common {
+    width: 100%;            /* обязательно ПОСЛЕ списка background: url(...)! */                                           
+    height: 0;              /* Общие свойства для блока с картинкой */
+    padding-top: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-color: rgb(240, 240, 240);
+    border: solid 1px rgb(240, 240, 240);
+    cursor: pointer; 
+}
+
+.img_common:hover {
+    border: solid 1px rgb(220, 220, 220);
+}
+
+/* ПОДВАЛ */
+
+.down_panel {
+    max-width: none;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 450px;
+    padding: 30px;
+    background-color: rgb(100, 100, 100);
+}
+
+.down_left {
+    display: inline-block;
+    width: 49%; 
+    height: 300px; 
+    min-width: 520px;
+}
+
+.down_right {
+    display: inline-block;
+    width: 49%; 
+    height: 300px;
+    min-width: 520px;  
+}
+
+.vizitka {
+    float: right; /* Визитка */
+    width: 450px;                                                
+    height: 250px;
+    padding-top: 18px;
+    margin-top: -15px;
+    margin-right: 100px;
+    background: url("../img/card.jpg");
+    background-size: contain;
+    border-bottom: 1px solid white;
+    border-right: 1px solid white;
+    box-shadow: 3px 5px 10px rgba(0,0,0,0.5); 
+    -moz-transform: rotate(-10deg); /* Для Firefox */
+    -ms-transform: rotate(-10deg); /* Для IE */
+    -webkit-transform: rotate(-10deg); /* Для Safari, Chrome, iOS */
+    -o-transform: rotate(-10deg); /* Для Opera */
+    transform: rotate(-10deg);
+    cursor: pointer; 
+}
+
+.viz_name {
+    font-family: 'Oswald-Regular', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    letter-spacing: 1px;
+    color:black;
+    text-align: center; 
+}
+
+.viz_text {
+    font-family: 'Oswald-Light', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: gray;
+    text-align: center;  
+}
+
+.viz_mail {
+    font-family: 'Oswald-Light', sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: brown;
+    text-align: center; 
+    margin-top: 30px;
+}
+
+.send_message {
+    float: left;                                /* Контейнер для формы */
+    width: 450px;                                                
+    height: 250px;
+    margin: 0px;
+}
+
+.forma { 
+    text-align: left;                           /* Стиль формы */
+    font-family: 'Oswald-Light', sans-serif;
+    font-size: 20px;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+.input_panel {
+    display: block;                             /* Стиль пенели для ввода текста */
+    font-family: 'Oswald-Light', sans-serif;
+    font-size: 20px;
+    color: black;
+    background-color: rgb(200, 200, 200);
+    border: 1px solid rgb(200, 200, 200);
+    outline: none;
+    width: 100%;
+    height: 200px;
+    padding: 10px 20px 10px 20px;
+    margin-bottom: -20px;
+}
+
+.sendform {   
+    font-family: 'Oswald-Regular', sans-serif; /* Стиль кнопки отправки */
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    user-select: none;
+    color: rgb(100, 100, 100);
+    background-color: rgb(200, 200, 200);
+    border: 1px solid rgb(200, 200, 200);
+    outline: none;
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
+}
+
+.sendform:hover {
+    color: black;
+    background-color:white;  
+}
+
+.bottom_up {
+    display: inline-block;  /* Кнопка "Вверх" */
+    position: relative;
+    margin: auto;
+    text-align: center;
+    width: 100px;
+    padding: 10px 20px 10px 20px;
+    margin-top: 0px;
+    font-family: 'Oswald-Regular', sans-serif;
+    font-weight: 400;
+    color: rgb(200, 200, 200);
+    font-size: 16px;
+    letter-spacing: 1px;
+    background-color: rgb(80, 80, 80);
+    border-radius: 10px;
+}
+
+.bottom_up:hover {
+    background-color:black;
+    color: white;
+}
+
+.bottom_place {
+    display: inline-block; /* Расположение кнопки "Вверх" */
+    position: relative;
+    width: 100%;
+    margin-top: 30px;
+}
+
+
+/* _______________________ КОНТРОЛЬ ШИРИНЫ ЭКРАНА _______________________ */
+
+@media screen and (max-width: 1224px) {
+
+    .down_panel {
+        height: 750px;
+    }
+
+    .down_right {
+        margin-top: 50px;  
+    }
+
+    .vizitka {
+        float: none; 
+        display: inline-block;
+        position: relative;
+        margin: auto;
+        text-align: center; 
+        margin-right: 0px;
+        margin-top: -25px;
+    }
+    .send_message {
+        float: none; 
+        display: inline-block;
+        position: relative;
+        margin: auto;
+        text-align: center; 
+        margin-top: -15px;
+        margin-right: 0px;
+    }
+    .down_left {
+        display: inline-block;
+        width: 100%; 
+    }
+    
+    .down_right {
+        display: inline-block;
+        width: 100%; 
+    }
+
+    .bottom_place {
+        margin-top: 0px;
+    }
+
+    .pic {
+        width: 49%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+        
+    .logo_panel {
+        display: none;
+    }
+    
+    .am_panel {
+        display: block;
+    }
+
+    .logo_txt {
+        font-size: 30px;
+        font-weight: 400;
+        letter-spacing: 0px;
+    } 
+
+    .pic {
+        width: 98%;
+    }
+
+    .down_panel {
+        padding: 30px 0px 0px 0px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+
+    .down_panel {
+        width: 110%;
+    }
+
+    .vizitka {
+        width: 450px;                                                
+        margin-right: 35px;
+    }
+
+    .input_panel {
+        width: 90%;
+    }
+}

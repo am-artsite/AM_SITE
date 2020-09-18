@@ -1,0 +1,108 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;    
+    /* border: dotted 1px yellow; Сетка для отладки */
+}
+
+@font-face {
+    font-family: 'Oswald-Light';
+    src: url("../../fonts/Oswald-Light.woff"); 
+}
+
+body {
+    font-weight: 200;
+    width: 100%;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    min-width: 0px;
+    background-color: black;
+}
+
+a {
+    display: inline-block;
+    position: relative;
+	text-decoration: none;
+}
+
+/* __________ ПАНЕЛЬ ДЛЯ ВЫВОДА УВЕЛИЧЕННОЙ КАРТИНКИ __________ */
+
+
+.place {
+    margin: auto;
+    width: 95%;
+    margin-top: 5vh;
+    height: 85vh;
+    max-width: 1000px;
+} 
+
+.txt {
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    padding: 5px 0px 7px 0px;
+    background-color: rgb(30, 30, 30);
+    font-family: 'Oswald-Light', sans-serif;
+    font-size: 16px;
+    color: rgb(150, 150, 150);
+    letter-spacing: 1px;
+    text-align: center; 
+    margin: 0px;
+}
+
+.txt_ref:hover {
+    color: rgb(200, 50, 50);
+}
+
+.arr {
+    display: block;
+    position: absolute;
+    top: 46vh;
+    left: 20px;
+    width: 20px;
+}
+
+.next {
+    display: block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 100vh;
+    padding: 30px;
+    opacity: 0.3;
+    cursor: pointer; 
+}
+.next:hover {
+    opacity: 1;
+}
+
+.previous {
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100vh;
+    padding: 30px;
+    opacity: 0.3;
+    cursor: pointer; 
+}
+.previous:hover {
+    opacity: 1;
+}
+
+.cross {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    opacity: 0.3;
+    cursor: pointer; 
+  }
+  
+  .cross:hover {
+    opacity: 1;
+  }

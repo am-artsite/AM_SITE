@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+ 
+<html lang="ru">
+
+<head> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name ="title" content="Александр Мануйлович">
+    <meta name="description" content="Александр Мануйлович. Живопись, графика, иллюстрации, дизайн, книги, тексты, веб-дизайн">
+    <meta name="keywords" content="мануйлович, александр, живопись, графика, иллюстрации, дизайн, книги, тексты, веб-дизайн">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    
+    <link rel="stylesheet" type="text/css" href="css/pic.css">
+    <link rel="shortcut icon" href="../img/am.png" type="image/x-icon">
+
+    <title>Александр Мануйлович</title>
+    
+    <style>
+        .bigpic {
+            background: url("../pictures/2graphics/12imageicon/icn2.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+    </style>
+
+</head>
+<body>
+
+<!-- --------------------- КАРТИНКА --------------------- -->
+
+<div class="place bigpic"></div>
+<p class="txt">"Images and Similarities #02". Бумага, цветные карандаши, 21х30 см, 1990.</p>
+<div class="next">
+    <img class="arr" src="img/arrow1.svg">
+</div>
+<div class="previous">
+    <img class="arr" src="img/arrow2.svg">
+</div>
+<img class="cross" src="../img/x.svg">
+
+<!--  ---------------- ПЕРЕХОДЫ ONCLICK ---------------- -->
+<script>
+
+var next = document.querySelector('.next');
+var previous = document.querySelector('.previous');
+var cross = document.querySelector('.cross');
+next.onclick = function(e) {
+    document.location.href = "pic2_12_3.html";       
+    }
+previous.onclick = function(e) {
+    document.location.href = "pic2_12_1.html";       
+    }
+cross.onclick = function(e) {
+    document.location.href = "../menupages/2graphics.html";       
+    }
+
+document.addEventListener("keydown", keyDownHandler);
+
+function keyDownHandler(e) {
+    if(e.keyCode == 39) {
+        document.location.href = "pic2_12_3.html";
+    }
+    else if(e.keyCode == 37) {
+        document.location.href = "pic2_12_1.html";
+    }
+}
+
+</script>
+
+</body>
+</html>

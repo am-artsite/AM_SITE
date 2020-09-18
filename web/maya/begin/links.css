@@ -1,0 +1,25 @@
+/* ссылки черные */.linkb
+ {
+    COLOR: #FFCC99; 
+    TEXT-DECORATION: none;
+    FONT-WEIGHT: normal; font-family: Arial, Helvetica, sans-serif; font-size: 10pt
+ }
+
+.linkb:hover
+ {
+  text-decoration : underline;
+; font-family: Arial, Helvetica, sans-serif; font-size: 10pt; color: #FFFFFF
+ }
+
+/* ссылки серые */.linkg
+ {
+    COLOR: #666666; 
+    TEXT-DECORATION: none;
+    FONT-WEIGHT: normal; font-family: Arial, Helvetica, sans-serif; font-size: 9pt
+ }
+
+.linkg:hover
+ {
+  text-decoration : underline;
+; color: #FF0000
+ }

@@ -1,0 +1,140 @@
+@font-face {
+    font-family: "Garamond Narrow";
+    src: url("../../fonts/GARNRPLA.woff"); /* для IE или без интерента */
+}
+
+@font-face {
+    font-family: "Futura Condensed";
+    src: url("../../fonts/FUTURACO.woff"); /* для IE или без интерента */
+}
+
+* {
+    font-family: 'Open Sans Condensed', "Futura Condensed", sans-serif;
+}
+
+body {
+    background: url("../../img/backgraund_taro.jpg") no-repeat;
+    background-size: cover;
+    background-position: top;
+    background-attachment: fixed;
+    background-color: rgb(91, 91, 91);
+    min-width: 400px;
+    margin: 0px;
+    padding: 0px;
+    text-align: center; /* Без этого margin: auto; НЕ РАБОТАЕТ! */
+}
+
+a {
+    position: relative;
+	text-transform: uppercase;
+}
+
+.page_as_a_whole {
+    display: inline-block;
+    width: 100%;
+    max-width: 800px;
+    margin: auto; /* Выравниваем по центру */
+}
+
+.page_wide {
+    display: inline-block;
+    background-color: white;
+    width: 100%;
+    max-width: 800px;
+}
+
+.flower {
+    background: url("../img/taro_flower.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 200px;
+    width: 350px;
+    float: right;
+}
+
+.header_block{
+    margin-top: 220px;
+    width: 100%;
+}
+
+.text_block {
+    background-color: white;
+    width: 80%;
+    float: right;
+    padding: 0px 40px 0px 0px;
+}
+
+.header {
+    color:black;
+    font-weight: 600;
+    font-size: 25pt;
+    margin-bottom: -10px;
+}
+
+.sub_text {
+    color:black;
+    font-size: 15pt;
+    letter-spacing: 2px;
+    word-spacing: 120%;
+}
+
+.body_text {
+    color:black;
+    text-align: left;
+    font-size: 16pt;
+    letter-spacing: 0px;
+    word-spacing: 115%;
+    margin-bottom: 15px;
+}
+
+.body_text_comment {
+    color: rgb(245, 125, 80);
+    text-align: left;
+    font-size: 16pt;
+    letter-spacing: 0px;
+    word-spacing: 115%;
+    margin-bottom: 15px;
+    border-left: 2px solid rgb(245, 125, 80); /* Параметры линии */ 
+    margin-left: 30px; /* Отступ слева */
+    padding-left: 30px; /* Расстояние от линии до текста */ 
+}
+
+.text_menu {
+    color: black;
+    padding: 0px 0px 10px 30px;   
+}
+
+.text_menu:hover {
+    color: rgb(245, 125, 80);
+}
+
+/* Контейнер с масштабируемой картинкой-фоном */
+
+.poster {
+    display: inline-block;
+    position: relative;
+    margin: auto; /* Выравниваем по центру */
+    padding: 0px;   
+    width: 80%;
+    min-width: 400px;
+}
+
+.ratio_1 {
+    position: relative;
+    background-image: url("../img/a_0.jpg");
+    background-size: contain;
+    height: 0;
+    border: none;
+    padding-top: 66.66%;
+}
+
+.ratio_2 {
+    position: relative;
+    background-image: url("../img/b_0.jpg");
+    background-size: contain;
+    height: 0;
+    border: none;
+    padding-top: 66.66%;
+}
+
+

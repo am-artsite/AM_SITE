@@ -1,0 +1,280 @@
+@font-face {
+    font-family: "Futura Condensed";
+    src: url("../fonts/FUTURACO.woff"); /* для IE или без интерента */
+}
+
+* {
+    font-family: 'Open Sans Condensed', "Futura Condensed", sans-serif;
+}
+
+body {
+    background: url("../img/backgraund_taro.jpg") no-repeat;
+    background-size: cover;
+    background-position: top;
+    background-color: rgb(91, 91, 91);
+    margin: 0px;
+    padding: 0px;
+    text-align: center; /* Без этого margin: auto; НЕ РАБОТАЕТ! */
+}
+
+/* ________________________ ШИРОКИЙ ЭКРАН ______________________ */
+
+.position {
+    display: inline-block;
+    position: relative;
+    margin: 0 auto;
+    height: 700px;
+    width: 1100px;
+    margin-top: 12vh;
+    border-radius: 40px;
+}
+
+.page {
+    display: inline-block;
+    position: relative;
+    margin-left: 0px;
+    margin-top: 0px;
+    height: 700px;
+    width: 1100px;
+    border-radius: 43px;
+    /* EI работает с фоном НЕКОРРЕКТНО! При скролинге все в линиях! */
+    background: url("../img/page_backgraund_1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgb(254, 228, 195); /* так меньше заметно */
+    /* ------------------------------------------------------------ */
+    border: 2px solid rgb(60, 60, 60);
+    box-shadow: 0.4em 0.4em 10px rgba(0,0,0,0.4);
+}
+
+.text {
+    color: black;
+    margin-bottom: -3px;
+}
+
+.poem {
+    color: sienna;
+    margin-bottom: -3px;
+}
+
+.bottom_position {
+    display: inline-block;
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+}
+
+.take_card {
+    background-color: rgb(200, 200, 200);
+    font-family: 'Open Sans Condensed', "Futura Condensed", sans-serif;
+    color: rgb(50, 50, 50);
+    font-size: 15pt;
+    font-weight: 600;
+    padding: 10px 15px 10px 15px; 
+    border-width: 0px;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;  
+}
+
+.take_card:hover {
+    font-family: 'Open Sans Condensed', "Futura Condensed", sans-serif;
+    background-color: rgb(180, 180, 180);
+}
+
+.take_card:active {
+    font-family: 'Open Sans Condensed', "Futura Condensed", sans-serif;
+    background-color: rgb(190, 190, 190);   
+}
+
+.pic {
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: rgb(40, 40, 40);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0px;
+    height: 700px;
+    width: 350px;
+    border-radius: 40px;
+    box-shadow: 0.4em 0.4em 5px rgba(0,0,0,0.2);
+}
+
+.text_block {
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    left: 380px;
+    width: 690px;
+    padding: 0px;
+    text-align: left;
+    font-size: 11pt;
+}
+
+.header_text {
+    font-size: 15pt;
+    font-weight: 600;
+}
+
+.game_over {
+    display: none;
+}
+
+.game_over_href_wide {
+    display: block;
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    background-color: brown;
+    color: bisque;
+    font-size: 15pt;
+    font-weight: 600;
+    padding: 10px 15px 10px 15px; 
+    border-width: 0px;
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.game_over_href_narrow {
+    display: none;
+    position: absolute;
+    top: 730px;
+    right: 107px;
+    background-color: brown;
+    color: bisque;
+    font-size: 15pt;
+    font-weight: 600;
+    padding: 10px 15px 10px 15px; 
+    border-width: 0px;
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+  }
+
+.game_over_href_wide:hover {
+    color: white;
+  }
+
+.game_over_href_narrow:hover {
+    color: white;
+  }
+
+.go_up {
+    display: none;
+    position: relative;
+    color: slategray;
+    text-align: center;
+    font-size: 15pt;
+    font-weight: 600;
+    margin-left: 110px;
+    width: 100px;
+    z-index: 1;
+}
+
+.go_up p {
+    margin-top: -10px;
+    margin-bottom: 0px;
+}
+
+.go_up:hover {
+    color: red;
+}
+
+/* _______________________ КОНТРОЛЬ ШИРИНЫ ЭКРАНА _______________________ */
+
+@media screen and (max-width: 600px) {    
+    .position {
+        display: inline-block;
+        position: absolute;     /* Размещам по центру страницы */
+        left: 50%;
+        top: 100px;
+        margin-left: -175px;    /* Смещаем блок на половину всей ширины влево */
+        margin-top: -10px;      /* Смещаем блок чуть вниз */
+        text-align: left;
+        width: 350px;
+    }
+
+    .page {
+        margin: 0px auto;  
+        height: 2650px;
+        width: 350px;
+        /* EI работает с фоном НЕКОРРЕКТНО! При скролинге все в линиях! */
+        background: url("../img/page_backgraund_2.jpg");
+        background-color: rgb(254, 228, 195);  /* так меньше заметно */
+        /* ------------------------------------------------------------ */
+    }
+
+    .pic {
+        display: inline-block;
+        position: relative;
+        margin: 0px auto;
+        background-color: rgb(40, 40, 40);
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding: 0px;
+        height: 700px;
+        width: 350px;
+        border-radius: 40px;
+        box-shadow: 0.4em 0.4em 5px rgba(0,0,0,0.2);
+        }
+
+    .text_block {
+        display: inline-block;
+        position: relative;
+        margin: 0px auto;
+        margin-top: 50px;
+        top: 0px;
+        left: 0px;
+        width: 85%;
+        padding: 25px;
+        font-size: 14pt;
+        }
+    
+    .bottom_position {
+        display: inline-block;
+        position: absolute;
+        top: 730px;
+        right: 100px;
+        }
+        
+    .take_card {
+        background-color: rgb(200, 200, 200);
+        font-family: 'Open Sans Condensed', "Futura Condensed", sans-serif;
+        color: rgb(50, 50, 50);
+        font-size: 15pt;
+        font-weight: 600;
+        padding: 10px 15px 10px 15px; 
+        border-width: 0px;
+        border-radius: 10px;
+        outline: none;
+        cursor: pointer;  
+        }
+
+    .text {
+        margin-bottom: 0px;
+    }
+        
+    .poem {
+        margin-bottom: 0px;
+    }
+    
+    .game_over_href_wide {
+        display: none;
+        }    
+    .game_over_href_narrow {
+        display: block;
+        }
+   
+    .go_up {
+        display: block;
+        }
+
+    .go_up:hover{
+        display: block;
+        }
+    } 
