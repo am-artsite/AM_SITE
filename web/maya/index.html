@@ -24,10 +24,18 @@
             font-size: large;
         }
 
+        .look {
+            text-decoration: none;
+            cursor: pointer;
+            color: black;
+        }
+
+        .look:hover {
+            text-decoration: none;
+            color: brown;
+        }
+
         .goback {
-            position:absolute;
-            width:100%;
-            top:55%;
             text-align:center;
             font-size: large;
             cursor: pointer;
@@ -40,8 +48,11 @@
 
 </head>
 <body>
-    <div class="sorry"> Sorry, M@ya-M@ya page is under construction. </div>
-    <div class="sorry goback">Вернуться на предыдущую страницу.</div>
+    <div class="sorry">Sorry, M@ya-M@ya page is under construction.<br><br>
+        <p class="goback">Вернуться на предыдущую страницу.</p>
+        <a class="look" href="mayaindex.html">Нет, все равно посмотреть!</a>
+    </div>
+    
 </div>
 
 <script>
