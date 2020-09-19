@@ -1,14 +1,54 @@
-<html>
-<head>
-<title>Untitled Document</title>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
-</head>
+<!DOCTYPE html>
+ 
+<html lang="ru">
 
-<body bgcolor="#000000">
-<div align="center">
-  <p>&nbsp;</p>
-  <p><a href="maya01.html"><img src="pic/logor.jpg" width="150" height="450" border="0" alt="begin"></a> 
-  </p>
+<head> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name ="title" content="Александр Мануйлович">
+    <meta name="description" content="Александр Мануйлович. Живопись, графика, иллюстрации, дизайн, книги, тексты, веб-дизайн">
+    <meta name="keywords" content="мануйлович, александр, живопись, графика, иллюстрации, дизайн, книги, тексты, веб-дизайн">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    
+    <link rel="stylesheet" type="text/css" href="css/pic.css">
+    <link rel="shortcut icon" href="../img/am.png" type="image/x-icon">
+
+    <title>Александр Мануйлович</title>
+
+    <style>
+        .sorry {
+            position:absolute;
+            width:100%;
+            top:50%;
+            text-align:center;
+            font-size: large;
+        }
+
+        .goback {
+            position:absolute;
+            width:100%;
+            top:55%;
+            text-align:center;
+            font-size: large;
+            cursor: pointer;
+        }
+
+        .goback:hover {
+            color: brown;
+        }
+    </style> 
+
+</head>
+<body>
+    <div class="sorry"> Sorry, M@ya-M@ya page is under construction. </div>
+    <div class="sorry goback">Вернуться на предыдущую страницу.</div>
 </div>
+
+<script>
+var goback = document.querySelector('.goback');
+goback.onclick = function() {
+    history.back(); return false;
+};
+</script>
 </body>
 </html>
