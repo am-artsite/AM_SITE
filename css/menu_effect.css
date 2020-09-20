@@ -72,4 +72,7 @@
         font-size: 18px;
         margin-right: 10px;         /* Интервалы между опциями */
     }
+    .menu-effect a::before {
+        top: 26px;                  /* Расположение линии по высоте */
+    }
 }
