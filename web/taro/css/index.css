@@ -192,9 +192,9 @@ body {
     .position {
         display: inline-block;
         position: absolute;     /* Размещам по центру страницы */
-        left: 49.5%;
+        left: 50%;
         top: 100px;
-        margin-left: -175px;    /* Смещаем блок на половину всей ширины влево */
+        margin-left: -178px;    /* Смещаем блок на половину всей ширины влево */
         margin-top: -10px;      /* Смещаем блок чуть вниз */
         text-align: left;
         width: 100%px;
