@@ -5,6 +5,7 @@
 
 * {
     font-family: 'Open Sans Condensed', "Futura Condensed", sans-serif;
+    /* border: dotted 1px gray; /* Сетка для отладки */
 }
 
 body {
@@ -193,10 +194,10 @@ body {
         position: absolute;     /* Размещам по центру страницы */
         left: 50%;
         top: 100px;
-        margin-left: -175px;    /* Смещаем блок на половину всей ширины влево */
+        margin-left: -178px;    /* Смещаем блок на половину всей ширины влево */
         margin-top: -10px;      /* Смещаем блок чуть вниз */
         text-align: left;
-        width: 350px;
+        width: 100%px;
     }
 
     .page {
