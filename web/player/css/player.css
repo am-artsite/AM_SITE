@@ -6,8 +6,13 @@
 }
 
 @font-face {
-    font-family: 'Oswald-Light';
-    src: url("../../../fonts/Oswald-Light.woff"); 
+    font-family: 'play-regular';
+    src: url("../fonts/play-regular.woff"); 
+}
+
+@font-face {
+    font-family: 'play-bold';
+    src: url("../fonts/play-bold.woff"); 
 }
 
 body {
@@ -23,7 +28,7 @@ body {
 a {
     display: inline-block;
     position: relative;
-	text-decoration: none;
+    text-decoration: none;
 }
 
 
@@ -72,8 +77,187 @@ a {
     }
 }
 
+/* _____________________ НАЧАЛЬНЫЙ ЭКРАН _____________________ */
+
+.overlay {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* высота секции равна высоте области просмотра */
+    background-color: black;
+    z-index: 10;
+}
+
+.desk {
+    display: block;
+    position: relative;
+    margin: auto;
+    width: 500px;
+    height: 580px;
+    margin-top: 5vh;
+}
+
+.logopic {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 500px;
+    height: 400px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background: url("../img/pic.jpg");
+}
+
+.order1 {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 120px;
+    width: 50%;
+    height: 40px;
+    padding: 8px 0px 0px 0px;
+    background-color:black;
+    color: rgb(150, 150, 150);
+    cursor: pointer; 
+    font-family: 'play-regular', sans-serif;
+    font-size: large; 
+    border: 1px solid rgb(50, 50, 50);
+}
+
+.order1:hover {
+    color: rgb(250, 250, 250);
+    background-color:rgb(50, 50, 50);
+}
+
+.order2 {
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 120px;
+    width: 50%;
+    height: 40px;
+    padding: 8px 0px 0px 0px;
+    background-color:black;
+    color: rgb(150, 150, 150);
+    cursor: pointer; 
+    font-family: 'play-regular', sans-serif;
+    font-size: large; 
+    border: 1px solid rgb(50, 50, 50);
+}
+
+.order2:hover {
+    color: rgb(250, 250, 250);
+    background-color:rgb(50, 50, 50);
+}
+
+.temp1 {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 80px;
+    width: 50%;
+    height: 40px;
+    padding: 8px 0px 0px 0px;
+    background-color:black;
+    color: rgb(150, 150, 150);
+    cursor: pointer; 
+    font-family: 'play-regular', sans-serif;
+    font-size: large; 
+    border: 1px solid rgb(50, 50, 50);
+}
+
+.temp1:hover {
+    color: rgb(250, 250, 250);
+    background-color:rgb(50, 50, 50);
+}
+
+.temp2 {
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 80px;
+    width: 50%;
+    height: 40px;
+    padding: 8px 0px 0px 0px;
+    background-color:black;
+    color: rgb(150, 150, 150);
+    cursor: pointer; 
+    font-family: 'play-regular', sans-serif;
+    font-size: large;
+    border: 1px solid rgb(50, 50, 50);  
+}
+
+.temp2:hover {
+    color: rgb(250, 250, 250);
+    background-color:rgb(50, 50, 50);
+}
+
+.tempform {
+    color: rgb(150, 150, 150);
+    background-color:black;
+ 
+}
+
+.tempform:hover {
+    color: white;
+}
+
+#customtemp {
+    width: 30px;
+    border: none;
+    background-color:rgb(0, 0, 0);
+    color:white;
+    padding: 2px;
+}
+
+.setpause {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 40px;
+    width: 100%;
+    height: 40px;
+    padding: 8px 0px 0px 0px;
+    background-color:black;
+    color: rgb(150, 150, 150);
+    cursor: pointer; 
+    font-family: 'play-regular', sans-serif;
+    font-size: large; 
+    border: 1px solid rgb(50, 50, 50); 
+}
+
+.start {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    padding-top: 8px;
+    background-color:black;
+    color: rgb(250, 250, 250);
+    cursor: pointer; 
+    font-family: 'play-regular', sans-serif;
+    font-size: large; 
+    border: 1px solid rgb(50, 50, 50);
+}
+
+.start:hover {
+    background-color:rgb(50, 50, 50);
+}
+
 /* __________ ПАНЕЛЬ ДЛЯ ВЫВОДА УВЕЛИЧЕННОЙ КАРТИНКИ __________ */
 
+.pic {
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+} 
 
 .place {
     margin: auto;
@@ -158,22 +342,3 @@ a {
 .cross:hover {
     opacity: 1;
   }
-
-span {
-    position: static;
-    color: white;
-    opacity: 1;  
-}
-
-.positioni {
-    color: white;
-    opacity: 1;
-}
-.positionj {
-    color: white;
-    opacity: 1;
-}
-.regime {
-    color: white;
-    opacity: 1;
-}

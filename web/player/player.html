@@ -15,43 +15,392 @@
 
     <title>Александр Мануйлович</title>
     
-    <style>
-        .pic {
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-        }
-    </style>
-
 </head>
 <body>
+
+<!-- ----------------- НАЧАЛЬНЫЙ ЭКРАН ----------------- -->
+
+<div class="overlay">
+    <div class="desk">
+        <!-- <div class="logopic"></div>  статичная картинка-->
+        <iframe class="logopic" src="movie/movie.html" frameborder="no" scrolling="no">
+                Ваш браузер не поддерживает плавающие фреймы!
+        </iframe>
+        <div class="order1">Случайно</div>
+        <div class="order2">По порядку</div>
+        <div class="temp1">Быстро</div>
+        <div class="temp2">Медленно</div>
+        <div class="setpause">
+            <div class="tempform">
+                <label for="customtemp">Пауза между картинками в секундах:&nbsp;&nbsp;&nbsp;</label>
+                <input id="customtemp" type="text" placeholder="----">
+            </div>
+        </div>
+        <div class="start">Начать просмотр</div>
+    </div>    
+</div>
 
 <!-- --------------------- КАРТИНКА --------------------- -->
 
 <div class="place pic"></div>
-<p class="txt">Смотрим на картинки. Все подряд.</p>
+<div class="panel">
+    <div class="key"></div>
+    <span class="regime">regime</span>
+</div>
+<div class="next">
+    <img class="arr" src="img/arrow1.svg">
+</div>
+<div class="previous">
+    <img class="arr" src="img/arrow2.svg">
+</div>
 
-<!--  -------------- ПОКАЗ КАРТИНОК В ЦИКЛЕ -------------- -->
+<!-- ---------------------- СКРИПТ --------------------- -->
+
 <script>
-var pause = 1000;
-var pic = document.querySelector('.pic');
-var urlImage = 'url("../../pictures/1painting/01acryl/acr1.jpg")';
 
-function showpic(where) {
-urlImage = where;
-pic.style.background = urlImage;
-pic.style.backgroundRepeat = 'no-repeat';
-pic.style.backgroundPosition = 'center';
-pic.style.backgroundSize = 'contain';
+// Начальный экран
+
+var interval = 1000; // Интервал по умочанию 1 секунда
+
+var temp1 = document.querySelector('.temp1');
+var temp2 = document.querySelector('.temp2');
+var setpause = document.querySelector('.setpause');
+var tempform = document.querySelector('.tempform');
+var customtemp = document.querySelector('#customtemp');
+
+temp1.style.backgroundColor = 'rgb(50, 50, 50)';
+
+temp1.onclick = function() {
+    temp1.textContent = 'Пауза 1 секунд';
+    temp1.style.backgroundColor = 'rgb(50, 50, 50)';
+    temp2.textContent = 'Быстро';
+    temp2.style.backgroundColor = 'rgb(0, 0, 0)';
+    setpause.style.backgroundColor = 'rgb(0, 0, 0)';
+    tempform.style.backgroundColor = 'rgb(0, 0, 0)';
+    customtemp.style.backgroundColor = 'rgb(0, 0, 0)';
+    interval = 1000;
 }
 
-var i=0;
-acrilshow=function(){
-    var urlImage = 'url("../../pictures/1painting/01acryl/acr' + i + '.jpg")';  
-    showpic(urlImage); 
-        i=i+1; if (i<=13) setTimeout(acrilshow, pause);
-};
-acrilshow();
+temp2.onclick = function() {
+    temp2.textContent = 'Пауза 5 секунда';
+    temp2.style.backgroundColor = 'rgb(50, 50, 50)';
+    temp1.textContent = 'Медленно';
+    temp1.style.backgroundColor = 'rgb(0, 0, 0)';
+    setpause.style.backgroundColor = 'rgb(0, 0, 0)';
+    tempform.style.backgroundColor = 'rgb(0, 0, 0)';
+    customtemp.style.backgroundColor = 'rgb(0, 0, 0)';
+    interval = 5000;
+}
+
+setpause.onclick = function() {
+    temp2.textContent = 'Быстро';
+    temp2.style.backgroundColor = 'rgb(0, 0, 0)';
+    temp1.textContent = 'Медленно';
+    temp1.style.backgroundColor = 'rgb(0, 0, 0)';
+    setpause.style.backgroundColor = 'rgb(50, 50, 50)';
+    tempform.style.backgroundColor = 'rgb(50, 50, 50)';
+    customtemp.style.backgroundColor = 'rgb(50, 50, 50)';
+}
+
+// Просмотр картинок
+
+var next = document.querySelector('.next');
+var previous = document.querySelector('.previous');
+
+// Формируем массив с путями к картинкам по порядку
+var inOrder = new Array();
+
+for (var i = 1; i <= 13; i++) {
+    var path = 'url("../../pictures/1painting/01acryl/acr' + i + '.jpg")'; 
+    inOrder.push(path);
+}
+for (var i = 1; i <= 4; i++) {
+    var path = 'url("../../pictures/1painting/02natur/ntr' + i + '.jpg")'; 
+    inOrder.push(path);
+}
+for (var i = 1; i <= 4; i++) {
+    var path = 'url("../../pictures/1painting/03buddagirl/bdd' + i + '.jpg")'; 
+    inOrder.push(path);
+}
+for (var i = 1; i <= 4; i++) {
+    var path = 'url("../../pictures/1painting/04frames/frm' + i + '.jpg")'; 
+    inOrder.push(path);
+}
+for (var i = 1; i <= 4; i++) {
+    var path = 'url("../../pictures/1painting/05stel/tel' + i + '.jpg")'; 
+    inOrder.push(path);
+}
+for (var i = 1; i <= 4; i++) {
+    var path = 'url("../../pictures/1painting/06tonal/tnl' + i + '.jpg")'; 
+    inOrder.push(path);
+}
+for (var i = 1; i <= 6; i++) {
+    var path = 'url("../../pictures/1painting/07hyperdress/drs' + i + '.jpg")'; 
+    inOrder.push(path);
+}
+for (var i = 1; i <= 6; i++) {
+    var path = 'url("../../pictures/1painting/08ornithologi/orn' + i + '.jpg")'; 
+    inOrder.push(path);
+}
+for (var i = 1; i <= 5; i++) {
+    var path = 'url("../../pictures/1painting/09zimmer/zim' + i + '.jpg")'; 
+    inOrder.push(path);
+}
+for (var i = 1; i <= 4; i++) {
+    var path = 'url("../../pictures/1painting/10dantoys/dnt' + i + '.jpg")'; 
+    inOrder.push(path);
+}
+for (var i = 1; i <= 4; i++) {
+    var path = 'url("../../pictures/1painting/11point/pnt' + i + '.jpg")'; 
+    inOrder.push(path);
+}
+for (var i = 1; i <= 2; i++) {
+    var path = 'url("../../pictures/1painting/12hat/hat' + i + '.jpg")'; 
+    inOrder.push(path);
+}
+for (var i = 1; i <= 11; i++) {
+    var path = 'url("../../pictures/1painting/13oldoil/oop' + i + '.jpg")'; 
+    inOrder.push(path);
+}
+for (var i = 1; i <= 39; i++) {
+    var path = 'url("../../pictures/2graphics/11cardboard/crd' + i + '.jpg")'; 
+    inOrder.push(path);
+}
+
+// Длинна получившегося массива
+var n = inOrder.length;
+
+// Формируем массив с натуральными числами в случайном порядке
+var randomArray = [0];
+
+function shuffle() {
+  for(var i = 0 ; i < n ; i++) {
+      var randomNumber = Math.floor(Math.random() * n + 1);
+      for(var j = 0 ; j <= i ; j++) {
+          if (randomArray[j] == randomNumber) {
+          randomNumber = Math.floor(Math.random() * n + 1);
+          j = 0;
+          }
+      }
+      randomArray.push(randomNumber);
+  }  
+  randomArray.shift();
+}
+shuffle();
+
+// Формируем массив с путями к картинкам в случайном порядке
+var mixedUp = new Array();
+for(var i = 0 ; i < n ; i++) {
+    var j = randomArray[i]-1;
+    mixedUp[i] = inOrder[j];
+}  
+
+// Выбор - по порядку или в случайном порядке
+var showArray = new Array();
+
+var order1 = document.querySelector('.order1');
+var order2 = document.querySelector('.order2');
+
+order1.onclick = function() {
+    order1.style.backgroundColor = 'rgb(50, 50, 50)';
+    order2.style.backgroundColor = 'rgb(0, 0, 0)';
+    showArray = mixedUp; // Массив по порядку
+}
+
+order2.onclick = function() {
+    order2.style.backgroundColor = 'rgb(50, 50, 50)';
+    order1.style.backgroundColor = 'rgb(0, 0, 0)';
+    showArray = inOrder; // Массив в случайном порядке
+}
+
+order1.style.backgroundColor = 'rgb(50, 50, 50)';
+showArray = mixedUp; // Массив в случайном порядке
+
+// Создаем переменную, запрашивающую элемент с классом .pic 
+var pic = document.querySelector('.pic');
+
+// ---------------- ВЫВОДИМ КАРТИНКУ НА ЭКРАН ----------------
+
+function picstyle(where) {
+    picUrl = where;
+    pic.style.background = picUrl;
+    pic.style.backgroundRepeat = 'no-repeat';
+    pic.style.backgroundPosition = 'center';
+    pic.style.backgroundSize = 'contain';
+    }
+
+// Настраиваем кнопку
+// Статус || stop   ~ autoplay
+// Статус >> go     ~ stepplay
+
+var key = document.querySelector('.key');
+var gopic = 'url("img/go.svg")';            // Изображение для кнопки go
+var stoppic = 'url("img/stop.svg")';        // Изображение для кнопки stop
+key.style.background = stoppic;             // Настраиваем background кнопки
+key.style.backgroundColor = 'goldenrod';
+key.style.backgroundRepeat = 'no-repeat';
+key.style.backgroundPosition = 'center';
+key.style.backgroundSize = 'contain';
+ 
+var btnStatus = key.getAttribute('status');  // переменная со статусом кнопки
+var startStatus = 'stop';       // начальный статус кнопки
+btnStatus = startStatus;        // начальный статус присваивается текущему
+
+// Устанавливаем начальный вид кнопки, до нажатия:
+key.setAttribute('status', startStatus);
+if(startStatus === 'go') {
+    key.setAttribute('status','go');    // устанавливаем статус кнопки
+    key.style.background = gopic;       
+    key.style.backgroundColor = 'goldenrod';
+    key.style.backgroundRepeat = 'no-repeat';
+    key.style.backgroundPosition = 'center';
+    key.style.backgroundSize = 'contain';
+} 
+else {
+    key.setAttribute('status','stop');  // устанавливаем статус кнопки
+    key.style.background = stoppic;
+    key.style.backgroundColor = 'goldenrod';
+    key.style.backgroundRepeat = 'no-repeat';
+    key.style.backgroundPosition = 'center';
+    key.style.backgroundSize = 'contain'; 
+}
+
+// По нажатию кнопки переключается режим просмотра и меняется внешний вид кнопки:
+key.onclick = function() {
+  if(btnStatus === 'stop') {
+    key.setAttribute('status','go');        // устанавливаем статус
+    btnStatus = key.getAttribute('status'); // запоминаем статус 
+    key.style.background = gopic;
+    key.style.backgroundColor = 'goldenrod';
+    key.style.backgroundRepeat = 'no-repeat';
+    key.style.backgroundPosition = 'center';
+    key.style.backgroundSize = 'contain';
+  } 
+  else {
+    key.setAttribute('status','stop');      // устанавливаем статус
+    btnStatus = key.getAttribute('status'); // запоминаем статус
+    key.style.background = stoppic;
+    key.style.backgroundColor = 'goldenrod';
+    key.style.backgroundRepeat = 'no-repeat';
+    key.style.backgroundPosition = 'center';
+    key.style.backgroundSize = 'contain'; 
+  }
+  if (btnStatus === 'stop') {
+    autoplay (i, interval);
+  }  
+  if (i == n) {
+    stepplay(0);
+  }
+}
+
+// ------------------ ЛИСТАНИЕ СТРЕЛКАМИ ------------------
+
+var next = document.querySelector('.next');
+var previous = document.querySelector('.previous');
+var test = 0;
+
+function stepplay(place) {
+    next.style.display = 'block';
+    previous.style.display = 'block';
+    i = place;
+    function step() {
+        var url = showArray[i];
+        picstyle(url);
+        next.onclick = function(e) {
+            if (i == n-1) i = -1; // зацикливаем
+            i = i + 1;
+            url = showArray[i];
+                test = (i + 1)/2 - Math.floor((i + 1)/2);
+                if (test == 0)
+                    pic.style.animation = 'showBlock2 1s';
+                else
+                    pic.style.animation = 'showBlock1 1s';
+            picstyle(url);
+        }
+        previous.onclick = function(e) {
+            if (i == 0) i = n; // зацикливаем
+            i = i - 1; 
+            url = showArray[i];
+            picstyle(url);
+                test = (i - 1)/2 - Math.floor((i - 1)/2);
+                if (test == 0)
+                    pic.style.animation = 'showBlock2 1s';
+                else
+                    pic.style.animation = 'showBlock1 1s';
+        }
+    }
+        if (i <= n)
+              
+    step();
+}
+
+// ------------------ ЛИСТАНИЕ АВТОМАТИЧЕСКОЕ ------------------
+
+// Функция, выводящая картинки с заданной задержкой (temp) по очереди из сформированного массива начиная с определенного места (place)
+function autoplay(place, temp) {
+    next.style.display = 'none';
+    previous.style.display = 'none';
+    var j = place;
+    function picshow() {
+        var url = showArray[j]; 
+        picstyle(url);
+            if (test == 0)
+                pic.style.animation = 'showBlock2 1s';
+            else
+                pic.style.animation = 'showBlock1 1s';
+        if (btnStatus === 'go') {
+            i = j - 1;      // Номер выведенного на экран изображения
+            j = n + 1;      // Чтобы закончить цикл прокрутки
+            stepplay(i);    // Запускаем пошаговый просмотр с текущего
+        }
+        j = j + 1;
+        control = j;
+        if (j <= n) {
+            setTimeout(picshow, temp);
+            i = j;
+        }
+    }
+    picshow();
+}
+
+// ЗАПУСКАЕМ ПЛЕЕР!
+
+var customTemp = document.getElementById('customtemp');
+var start = document.querySelector('.start');
+var overlay = document.querySelector('.overlay');
+
+var i = 0;
+
+function launch() {
+    overlay.style.display = 'none';
+
+    var test = customTemp.value; // не ввели ли паузу вручную
+
+    if(test !== '') {
+        interval = customTemp.value;
+        interval = interval * 1000;
+    } 
+
+    if (btnStatus === 'stop') {
+    autoplay(i, interval);
+    }
+    else {
+    stepplay(i);
+    } 
+}
+
+// запуск по клику на панели "Начать просмотр"
+start.onclick = function() { 
+    launch();
+}
+
+// запуск по нажатиb enter
+document.addEventListener("keydown", keyDownHandler); 
+function keyDownHandler(e) {
+    if(e.keyCode == 13) {
+        launch();
+    }
+}
 
 </script>
 
